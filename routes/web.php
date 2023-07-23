@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Ipg\PaymentController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::prefix('users')->group(function() {
         Route::view('login', 'user.login');
     });
     Route::post('login', [AuthController::class, 'login'])->name('login');
+});
+
+Route::prefix('payments')->group(function () {
+    Route::post('', [PaymentController::class, 'createTransaction'])->name('payment');
 });

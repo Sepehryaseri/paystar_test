@@ -155,6 +155,8 @@ return [
     |
     */
 
+    'callback_url' => env('APP_URL') . '/your/callback/url',
+
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Services Providers...
@@ -169,6 +171,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\PayStarServiceProvider::class
     ])->toArray(),
 
     /*

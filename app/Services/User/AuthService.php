@@ -30,7 +30,7 @@ class AuthService
             return ['status' => 200];
 
         } catch (Exception $exception) {
-            return $this->getMessage($exception);
+            return $this->getException($exception);
         }
     }
 }
