@@ -155,7 +155,7 @@ return [
     |
     */
 
-    'callback_url' => env('APP_URL') . '/your/callback/url',
+    'callback_url' => env('APP_URL') . '/ipg/callback',
 
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*

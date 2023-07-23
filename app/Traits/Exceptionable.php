@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Exceptions\PayStarException;
 use App\Exceptions\TransactionException;
 use Exception;
 use Illuminate\Database\QueryException;
@@ -14,7 +15,9 @@ trait Exceptionable
         if ($exception instanceof QueryException) {
             $message = __('error.internal');
         } elseif ($exception instanceof TransactionException) {
-            $message = __('transaction.not_inserted');
+            $message = $exception->getMessage();
+        } elseif ($exception instanceof PayStarException) {
+            $message = __('paystar.error');
         } else {
             $message = $exception->getMessage();
         }

@@ -12,7 +12,8 @@ class CreateTransactionService extends Service
             'amount' => $amount,
             'order_id' => $order_id,
             'callback' => config('app.callback_url'),
-            'name' => $name
+            'sign' => hash_hmac('sha512', $amount . '#' . $order_id . '#' . config('app.callback_url'), config('paystar.key')),
+            'name' => $name,
         ];
         return $this;
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ref_number')->unique();
             $table->string('order_id')->unique();
             $table->string('tracking_code')->nullable();
+            $table->tinyInteger('is_verified')->default(0);
             $table->timestamps();
         });
     }
